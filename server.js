@@ -24,6 +24,18 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
+app.get('/api/whoami', function(req,res){
+  try{
+    console.log(req.header);
+    res.json({header: req.header});
+  }
+  catch(err){
+    res.json({
+      error: err.message
+    })
+  }
+
+})
 
 
 // listen for requests :)
