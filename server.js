@@ -26,8 +26,12 @@ app.get("/api/hello", function (req, res) {
 
 app.get('/api/whoami', function(req,res){
   try{
-    console.log(req.header.language);
-    res.json({header: req.header});
+    console.log(req.headers);
+    res.json({
+      "software": req.headers['user-agent'],
+      "language": req.headers['accpet-language'],
+      "ipaddress":
+    });
   }
   catch(err){
     res.json({
