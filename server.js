@@ -26,11 +26,10 @@ app.get("/api/hello", function (req, res) {
 
 app.get('/api/whoami', function(req,res){
   try{
-    console.log(req.headers);
     res.json({
       "software": req.headers['user-agent'],
-      "language": req.headers['accpet-language'],
-      "ipaddress":
+      "language": req.headers['accept-language'],
+      "ipaddress":req.headers['x-forwarded-for'].split(',')[1]
     });
   }
   catch(err){
