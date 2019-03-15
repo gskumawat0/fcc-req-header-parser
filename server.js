@@ -26,7 +26,7 @@ app.get("/api/hello", function (req, res) {
 
 app.get('/api/whoami', function(req,res){
   try{
-    console.log(req.header);
+    console.log(req.header.language);
     res.json({header: req.header});
   }
   catch(err){
